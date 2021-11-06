@@ -1,0 +1,8 @@
+version: 1
+defaultRefs: [master]
+
+tasks:
+  - name: tidb-cyclo
+    taskType: cyclo
+    shellScript: |
+      gocyclo -over 20 -avg -ignore "_tes  
