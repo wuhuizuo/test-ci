@@ -5,4 +5,4 @@ tasks:
   - name: tidb-cyclo
     taskType: cyclo
     shellScript: |
-      gocyclo -over 20 -avg -ignore "_tes  
+      gocyclo -over 20 -avg -ignore "_test|pb.go" ./ | tee repo_cyclo.log
