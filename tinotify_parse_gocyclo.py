@@ -16,10 +16,10 @@ def parse_cyclo_log(log_path):
             each_line_items = line.split(" ")
             print(each_line_items)
             function_cyclo_details.append({
-                "complexity": each_line_items[1],
-                "pkg_name": each_line_items[2],
-                "func_name": each_line_items[3],
-                "position": each_line_items[4].rstrip()
+                "complexity": each_line_items[0],
+                "pkg_name": each_line_items[1],
+                "func_name": each_line_items[2],
+                "position": each_line_items[3].rstrip()
             })
 
     str_cyclo_result = json.dumps({
