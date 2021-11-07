@@ -40,6 +40,8 @@ if __name__ == '__main__':
     os.environ["COMPLEXITY_BASELINE"] = "20"
     str_cyclo_result = parse_cyclo_log(log_path)
     os.environ["ENV_CYCLO_RESULT"] = str_cyclo_result
+    with open("gocyclo_result.json", "w") as f:
+        f.write(str_cyclo_result)
 
     print(os.getenv("ENV_CYCLO_RESULT"))
 
