@@ -22,15 +22,13 @@ def parse_cyclo_log(log_path):
                 "position": each_line_items[3].rstrip()
             })
 
-    str_cyclo_result = json.dumps({
+    return {
         "average_complexity": average_complexity,
         "complexity_baseline": complexity_baseline,
         "function_cyclo_details": function_cyclo_details,
         "summary": "{} functions exceed the cyclomatic quality gate ({})".format(len(function_cyclo_details),
                                                                                  complexity_baseline)
-    })
-
-    return str_cyclo_result
+    }
 
 
 if __name__ == '__main__':
@@ -38,25 +36,15 @@ if __name__ == '__main__':
     print("cyclo log path: ", log_path)
 
     os.environ["COMPLEXITY_BASELINE"] = "20"
-    str_cyclo_result = parse_cyclo_log(log_path)
+    cyclo_data = parse_cyclo_log(log_path)
+    str_cyclo_result = json.dumps(cyclo_data)
+    str_cyclo_summary = json.dumps(cyclo_data.get("summary"))
     os.environ["ENV_CYCLO_RESULT"] = str_cyclo_result
-    with open("gocyclo_result.json", "w") as f:
+    os.environ["ENV_CYCLO_SUMMARY"] = str_cyclo_summary
+    with open("cyclo_result.json", "w") as f:
         f.write(str_cyclo_result)
+    with open("cyclo_summary.info", "w") as f:
+        f.write(str_cyclo_summary)
 
     print(os.getenv("ENV_CYCLO_RESULT"))
 
-
-
-
-
-
-# result_data = {
-#     "average_complexity": 4.44,
-#     "complexity_baseline": 20,
-#     "function_cyclo_details": [{
-#         "complexity": 2072,
-#         "pkg_name": "",
-#         "fun_cname": "",
-#         "position": "",
-#     }]
-# }
