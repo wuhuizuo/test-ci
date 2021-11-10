@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+	<testsuite name="TLS MinVersion too low." tests="1">
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/common/security.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/common/security.go:75-79] - TLS MinVersion too low. (Confidence: 2, Severity: 2, CWE: 295)
+> 74: 
+75: 	return &amp;tls.Config{
+76: 		Certificates: certificates,
+77: 		RootCAs:      certPool,
+78: 		NextProtos:   []string{&#34;h2&#34;, &#34;http/1.1&#34;}, // specify `h2` to let Go use HTTP/2.
+79: 	}, nil
+80: }
+</failure>
+		</testcase>
+	</testsuite>
+	<testsuite name="Profiling endpoint is automatically exposed on /debug/pprof" tests="1">
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/utils/pprof.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/utils/pprof.go:14] - Profiling endpoint is automatically exposed on /debug/pprof (Confidence: 2, Severity: 2, CWE: 200)
+> 13: 	&#34;net/http&#34;
+14: 	_ &#34;net/http/pprof&#34;
+15: 
+</failure>
+		</testcase>
+	</testsuite>
+	<testsuite name="Potential hardcoded credentials" tests="8">
+		<testcase name="/Users/mori/PingCAP/tidb/util/stmtsummary/reader.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/util/stmtsummary/reader.go:249] - Potential hardcoded credentials (Confidence: 0, Severity: 2, CWE: 798)
+> 248: 	MaxCopWaitTimeStr               = &#34;MAX_COP_WAIT_TIME&#34;
+249: 	MaxCopWaitAddressStr            = &#34;MAX_COP_WAIT_ADDRESS&#34;
+250: 	AvgProcessTimeStr               = &#34;AVG_PROCESS_TIME&#34;
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/util/stmtsummary/reader.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/util/stmtsummary/reader.go:248] - Potential hardcoded credentials (Confidence: 0, Severity: 2, CWE: 798)
+> 247: 	MaxCopProcessAddressStr         = &#34;MAX_COP_PROCESS_ADDRESS&#34;
+248: 	MaxCopWaitTimeStr               = &#34;MAX_COP_WAIT_TIME&#34;
+249: 	MaxCopWaitAddressStr            = &#34;MAX_COP_WAIT_ADDRESS&#34;
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/sessionctx/variable/sysvar.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/sessionctx/variable/sysvar.go:2095] - Potential hardcoded credentials (Confidence: 0, Severity: 2, CWE: 798)
+> 2094: 	// InnodbFtEnableStopword is the name for &#39;innodb_ft_enable_stopword&#39; system variable.
+2095: 	InnodbFtEnableStopword = &#34;innodb_ft_enable_stopword&#34;
+2096: 	// InnodbSupportXA is the name for &#39;innodb_support_xa&#39; system variable.
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/sessionctx/variable/session.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/sessionctx/variable/session.go:1959] - Potential hardcoded credentials (Confidence: 0, Severity: 2, CWE: 798)
+> 1958: 	// SlowLogCopWaitAddr is the address of TiKV where the cop-task which cost wait process time run.
+1959: 	SlowLogCopWaitAddr = &#34;Cop_wait_addr&#34;
+1960: 	// SlowLogCopBackoffPrefix contains backoff information.
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/sessionctx/variable/session.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/sessionctx/variable/session.go:1955] - Potential hardcoded credentials (Confidence: 0, Severity: 2, CWE: 798)
+> 1954: 	// SlowLogCopWaitP90 is the p90 wait time of all cop-tasks.
+1955: 	SlowLogCopWaitP90 = &#34;Cop_wait_p90&#34;
+1956: 	// SlowLogCopWaitMax is the max wait time of all cop-tasks.
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/sessionctx/variable/session.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/sessionctx/variable/session.go:1953] - Potential hardcoded credentials (Confidence: 0, Severity: 2, CWE: 798)
+> 1952: 	// SlowLogCopWaitAvg is the average wait time of all cop-tasks.
+1953: 	SlowLogCopWaitAvg = &#34;Cop_wait_avg&#34;
+1954: 	// SlowLogCopWaitP90 is the p90 wait time of all cop-tasks.
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/parser/mysql/const.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/parser/mysql/const.go:168] - Potential hardcoded credentials (Confidence: 0, Severity: 2, CWE: 798)
+> 167: 	AuthNativePassword      = &#34;mysql_native_password&#34;
+168: 	AuthCachingSha2Password = &#34;caching_sha2_password&#34;
+169: 	AuthSocket              = &#34;auth_socket&#34;
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/parser/mysql/const.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/parser/mysql/const.go:167] - Potential hardcoded credentials (Confidence: 0, Severity: 2, CWE: 798)
+> 166: const (
+167: 	AuthNativePassword      = &#34;mysql_native_password&#34;
+168: 	AuthCachingSha2Password = &#34;caching_sha2_password&#34;
+</failure>
+		</testcase>
+	</testsuite>
+	<testsuite name="Potential Integer overflow made by strconv.Atoi result conversion to int16/32" tests="1">
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/lightning.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/lightning.go:778] - Potential Integer overflow made by strconv.Atoi result conversion to int16/32 (Confidence: 1, Severity: 2, CWE: 190)
+> 777: 		tableName := engine[:index]
+778: 		engineID, err := strconv.Atoi(engine[index+1:])
+779: 		if err != nil {
+</failure>
+		</testcase>
+	</testsuite>
+	<testsuite name="SQL string formatting" tests="8">
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/restore/meta_manager.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/restore/meta_manager.go:824] - SQL string formatting (Confidence: 2, Severity: 1, CWE: 89)
+> 823: 	err = exec.Transact(ctx, &#34;check and finish schedulers&#34;, func(ctx context.Context, tx *sql.Tx) error {
+824: 		query := fmt.Sprintf(&#34;SELECT task_id, status, state from %s FOR UPDATE&#34;, m.tableName)
+825: 		rows, err := tx.QueryContext(ctx, query)
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/restore/meta_manager.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/restore/meta_manager.go:698] - SQL string formatting (Confidence: 2, Severity: 1, CWE: 89)
+> 697: 	err = exec.Transact(ctx, &#34;check and pause schedulers&#34;, func(ctx context.Context, tx *sql.Tx) error {
+698: 		query := fmt.Sprintf(&#34;SELECT task_id, pd_cfgs, status, state from %s FOR UPDATE&#34;, m.tableName)
+699: 		rows, err := tx.QueryContext(ctx, query)
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/restore/meta_manager.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/restore/meta_manager.go:638] - SQL string formatting (Confidence: 2, Severity: 1, CWE: 89)
+> 637: 	return exec.Transact(ctx, &#34;check tasks exclusively&#34;, func(ctx context.Context, tx *sql.Tx) error {
+638: 		query := fmt.Sprintf(&#34;SELECT task_id, pd_cfgs, status, state, source_bytes, cluster_avail from %s FOR UPDATE&#34;, m.tableName)
+639: 		rows, err := tx.QueryContext(ctx, query)
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/restore/meta_manager.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/restore/meta_manager.go:596] - SQL string formatting (Confidence: 2, Severity: 1, CWE: 89)
+> 595: 	err := exec.Transact(ctx, &#34;check whether this task has started before&#34;, func(ctx context.Context, tx *sql.Tx) error {
+596: 		query := fmt.Sprintf(&#34;SELECT task_id from %s WHERE task_id = %d&#34;, m.tableName, m.taskID)
+597: 		rows, err := tx.QueryContext(ctx, query)
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/restore/meta_manager.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/restore/meta_manager.go:384] - SQL string formatting (Confidence: 2, Severity: 1, CWE: 89)
+> 383: 	err = exec.Transact(ctx, &#34;checksum pre-check&#34;, func(ctx context.Context, tx *sql.Tx) error {
+384: 		query := fmt.Sprintf(&#34;SELECT task_id, total_kvs_base, total_bytes_base, checksum_base, total_kvs, total_bytes, checksum, status, has_duplicates from %s WHERE table_id = ? FOR UPDATE&#34;, m.tableName)
+385: 		rows, err := tx.QueryContext(ctx, query, m.tr.tableInfo.ID)
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/restore/meta_manager.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/restore/meta_manager.go:183] - SQL string formatting (Confidence: 2, Severity: 1, CWE: 89)
+> 182: 	err = exec.Transact(ctx, &#34;init table allocator base&#34;, func(ctx context.Context, tx *sql.Tx) error {
+183: 		query := fmt.Sprintf(&#34;SELECT task_id, row_id_base, row_id_max, total_kvs_base, total_bytes_base, checksum_base, status from %s WHERE table_id = ? FOR UPDATE&#34;, m.tableName)
+184: 		rows, err := tx.QueryContext(ctx, query, m.tr.tableInfo.ID)
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/checkpoints/checkpoints.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/checkpoints/checkpoints.go:1390-1399] - SQL string formatting (Confidence: 2, Severity: 1, CWE: 89)
+> 1389: 
+1390: 	selectQuery := fmt.Sprintf(`
+1391: 		SELECT
+1392: 			t.table_name,
+1393: 			COALESCE(MIN(e.engine_id), 0),
+1394: 			COALESCE(MAX(e.engine_id), -1)
+1395: 		FROM %[1]s.%[4]s t
+1396: 		LEFT JOIN %[1]s.%[5]s e ON t.table_name = e.table_name
+1397: 		WHERE %[2]s = ? AND t.status &lt;= %[3]d
+1398: 		GROUP BY t.table_name;
+1399: 	`, cpdb.schema, aliasedColName, CheckpointStatusMaxInvalid, CheckpointTableNameTable, CheckpointTableNameEngine)
+1400: 	deleteChunkQuery := fmt.Sprintf(`
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/checkpoints/checkpoints.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/checkpoints/checkpoints.go:1304-1313] - SQL string formatting (Confidence: 2, Severity: 1, CWE: 89)
+> 1303: 	// 3. chunk has been read
+1304: 	query := fmt.Sprintf(`
+1305: 		SELECT DISTINCT t.table_name, c.engine_id
+1306: 		FROM %s.%s t, %s.%s c, %s.%s e
+1307: 		WHERE t.table_name = c.table_name AND t.table_name = e.table_name AND c.engine_id = e.engine_id
+1308: 			AND %d &lt; t.status AND t.status &lt; %d
+1309: 			AND %d &lt; e.status AND e.status &lt; %d
+1310: 			AND c.pos &gt; c.offset;`,
+1311: 		cpdb.schema, CheckpointTableNameTable, cpdb.schema, CheckpointTableNameChunk, cpdb.schema, CheckpointTableNameEngine,
+1312: 		CheckpointStatusMaxInvalid, CheckpointStatusIndexImported,
+1313: 		CheckpointStatusMaxInvalid, CheckpointStatusImported)
+1314: 
+</failure>
+		</testcase>
+	</testsuite>
+	<testsuite name="Potential HTTP request made with variable url" tests="1">
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/mock/mock_cluster.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/mock/mock_cluster.go:180] - Potential HTTP request made with variable url (Confidence: 1, Severity: 1, CWE: 88)
+> 179: 	for retry = 0; retry &lt; retryTime; retry++ {
+180: 		resp, err := http.Get(statusURL) // nolint:noctx
+181: 		if err == nil {
+</failure>
+		</testcase>
+	</testsuite>
+	<testsuite name="Expect file permissions to be 0600 or less" tests="5">
+		<testcase name="/Users/mori/PingCAP/tidb/store/mockstore/unistore/tikv/mvcc.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/store/mockstore/unistore/tikv/mvcc.go:125] - Expect file permissions to be 0600 or less (Confidence: 2, Severity: 1, CWE: 276)
+> 124: 	tmpFileName := store.dir + &#34;/lock_store.tmp&#34;
+125: 	f, err := os.OpenFile(tmpFileName, os.O_CREATE|os.O_TRUNC|os.O_RDWR, 0666)
+126: 	if err != nil {
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/store/mockstore/unistore/lockstore/load_dump.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/store/mockstore/unistore/lockstore/load_dump.go:99] - Expect file permissions to be 0600 or less (Confidence: 2, Severity: 1, CWE: 276)
+> 98: 	tmpFileName := fileName + &#34;.tmp&#34;
+99: 	f, err := os.OpenFile(tmpFileName, os.O_CREATE|os.O_TRUNC|os.O_RDWR, 0666)
+100: 	if err != nil {
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/parser/goyacc/main.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/parser/goyacc/main.go:327] - Expect file permissions to be 0600 or less (Confidence: 2, Severity: 1, CWE: 276)
+> 326: 	if fn := *oXErrorsGen; fn != &#34;&#34; {
+327: 		f, err := os.OpenFile(fn, os.O_RDWR|os.O_CREATE, 0666)
+328: 		if err != nil {
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/executor/select_into.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/executor/select_into.go:55] - Expect file permissions to be 0600 or less (Confidence: 2, Severity: 1, CWE: 276)
+> 54: 
+55: 	f, err := os.OpenFile(s.intoOpt.FileName, os.O_RDWR|os.O_CREATE|os.O_EXCL, 0666)
+56: 	if err != nil {
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/cmd/pluginpkg/pluginpkg.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/cmd/pluginpkg/pluginpkg.go:129] - Expect file permissions to be 0600 or less (Confidence: 2, Severity: 1, CWE: 276)
+> 128: 	genFileName := filepath.Join(pkgDir, filepath.Base(pkgDir)+&#34;.gen.go&#34;)
+129: 	genFile, err := os.OpenFile(genFileName, os.O_RDWR|os.O_CREATE|os.O_TRUNC, 0755)
+130: 	if err != nil {
+</failure>
+		</testcase>
+	</testsuite>
+	<testsuite name="Expect directory permissions to be 0750 or less" tests="6">
+		<testcase name="/Users/mori/PingCAP/tidb/util/disk/tempDir.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/util/disk/tempDir.go:121] - Expect directory permissions to be 0750 or less (Confidence: 2, Severity: 1, CWE: 276)
+> 120: 	if err != nil &amp;&amp; !os.IsExist(err) {
+121: 		err = os.MkdirAll(path, 0755)
+122: 		if err != nil {
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/util/disk/tempDir.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/util/disk/tempDir.go:67] - Expect directory permissions to be 0750 or less (Confidence: 2, Severity: 1, CWE: 276)
+> 66: 	if err != nil &amp;&amp; !os.IsExist(err) {
+67: 		err = os.MkdirAll(tempDir, 0755)
+68: 		if err != nil {
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/store/mockstore/unistore/mock.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/store/mockstore/unistore/mock.go:37] - Expect directory permissions to be 0750 or less (Confidence: 2, Severity: 1, CWE: 276)
+> 36: 
+37: 	if err := os.MkdirAll(path, 0777); err != nil {
+38: 		return nil, nil, nil, err
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/backend/local/local.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/backend/local/local.go:2327] - Expect directory permissions to be 0750 or less (Confidence: 2, Severity: 1, CWE: 276)
+> 2326: 		if !common.IsDirExists(localEngine.sstDir) {
+2327: 			if err := os.Mkdir(localEngine.sstDir, 0o755); err != nil {
+2328: 				return errors.Trace(err)
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/backend/local/local.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/backend/local/local.go:1287] - Expect directory permissions to be 0750 or less (Confidence: 2, Severity: 1, CWE: 276)
+> 1286: 	if !common.IsDirExists(sstDir) {
+1287: 		if err := os.Mkdir(sstDir, 0o755); err != nil {
+1288: 			return errors.Trace(err)
+</failure>
+		</testcase>
+		<testcase name="/Users/mori/PingCAP/tidb/br/cmd/tidb-lightning-ctl/main.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/cmd/tidb-lightning-ctl/main.go:257] - Expect directory permissions to be 0750 or less (Confidence: 2, Severity: 1, CWE: 276)
+> 256: 
+257: 	if err := os.MkdirAll(dumpFolder, 0o755); err != nil {
+258: 		return errors.Trace(err)
+</failure>
+		</testcase>
+	</testsuite>
+	<testsuite name="Expect WriteFile permissions to be 0600 or less" tests="1">
+		<testcase name="/Users/mori/PingCAP/tidb/br/pkg/lightning/checkpoints/checkpoints.go">
+			<failure message="Found 1 vulnerability. See stacktrace for details.">Results:
+[/Users/mori/PingCAP/tidb/br/pkg/lightning/checkpoints/checkpoints.go:993] - Expect WriteFile permissions to be 0600 or less (Confidence: 2, Severity: 1, CWE: 276)
+> 992: 	tmpPath := cpdb.path + &#34;.tmp&#34;
+993: 	if err := os.WriteFile(tmpPath, serialized, 0o644); err != nil {
+994: 		return errors.Trace(err)
+</failure>
+		</testcase>
+	</testsuite>
+</testsuites>
