@@ -6,3 +6,77 @@ tasks:
     taskType: cyclo
     shellScript: |
       gocyclo -over 20 -avg -ignore "_test|pb.go" ./ | tee repo_cyclo.log
+  - name: tidb-gosec
+    taskType: gosec
+    shellScript: |
+      gosec -exclude-generated -fmt=junit-xml -out=results.xml -stdout -verbose=text -exclude=G103,G104,G204,G304,G307,G401,G404,G501,G505,G601 ./...
+    reportDir: results.xml
+
+  - name: tidb-build
+    taskType: build
+    shellScript: |
+      make
+    outputDir: bin/
+    buildEnv:
+      image: hub.pingcap.net/jenkins/centos7_golang-1.16:latest
+
+  - name: tidb-ut
+    taskType: unit-test
+    shellScript: |
+      cd ..
+      go get -u gotest.tools/gotestsum
+      cd -
+      export log_level=debug
+      cd tools/check
+      go build -o ../bin/failpoint-ctl github.com/pingcap/failpoint/failpoint-ctl
+      cd ../..
+      find $$PWD/ -type d | grep -vE "(\.git|tools)" | xargs tools/bin/failpoint-ctl enable
+      gotestsum --junitfile test.xml  --packages="$(go list ./... | grep -v github.com/pingcap/tidb/cmd)" -- -p 8 -coverprofile=cov.out | grep -A 10 -B 10 "\-\-\- Fail" || true
+      gocov convert cov.out | gocov-xml > coverage.xml
+    buildEnv:
+      image: hub.pingcap.net/jenkins/centos7_golang-1.16:latest
+    utReportDir: test.xml
+    covReportDir: coverage.xml
+    coverageRate: 50
+
+  - name: tidb-race
+    taskType: unit-test
+    shellScript: |
+      cd ..
+      go get -u gotest.tools/gotestsum
+      cd -
+      export log_level=debug
+      cd tools/check
+      go build -o ../bin/failpoint-ctl github.com/pingcap/failpoint/failpoint-ctl
+      cd ../..
+      find $$PWD/ -type d | grep -vE "(\.git|tools)" | xargs tools/bin/failpoint-ctl enable
+      gotestsum -f standard-verbose --junitfile test.xml  --packages="$(go list ./... | grep -v github.com/pingcap/tidb/cmd)" -- -race -coverprofile=cov.out | grep -A 10 -B 10 "\-\-\- Fail"
+      gocov convert cov.out | gocov-xml > coverage.xml
+    buildEnv:
+      image: hub.pingcap.net/jenkins/centos7_golang-1.16:latest
+    utReportDir: test.xml
+    covReportDir: coverage.xml
+
+  - name: tidb-leak
+    taskType: unit-test
+    shellScript: |
+      cd ..
+      go get -u gotest.tools/gotestsum
+      cd -
+      export log_level=debug
+      cd tools/check
+      go build -o ../bin/failpoint-ctl github.com/pingcap/failpoint/failpoint-ctl
+      cd ../..
+      find $$PWD/ -type d | grep -vE "(\.git|tools)" | xargs tools/bin/failpoint-ctl enable
+      gotestsum --junitfile test.xml  --packages="$(go list ./... | grep -v github.com/pingcap/tidb/cmd)" -- -p 8 -tags leak -coverprofile=cov.out | grep -A 10 -B 10 "\-\-\- Fail"
+      gocov convert cov.out | gocov-xml > coverage.xml
+    buildEnv:
+      image: hub.pingcap.net/jenkins/centos7_golang-1.16:latest
+    utReportDir: test.xml
+    covReportDir: coverage.xml
+
+  - name: tidb-lint
+    taskType: lint
+    shellScript: |
+      golangci-lint run --out-format=junit-xml -v ./... > golangci-lint-report.xml
+    reportDir: golangci-lint-report.xml
