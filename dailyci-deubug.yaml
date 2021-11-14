@@ -1,0 +1,21 @@
+version: 1
+defaultRefs: [master]
+
+tasks:
+  - name: tidb-cyclo
+    taskType: cyclo
+    shellScript: |
+      gocyclo -over 20 -avg -ignore "_test|pb.go" ./ | tee repo_cyclo.log
+  - name: tidb-gosec
+    taskType: gosec
+    shellScript: |
+      gosec -exclude-generated -fmt=junit-xml -out=results.xml -stdout -verbose=text -exclude=G103,G104,G204,G304,G307,G401,G404,G501,G505,G601 ./...
+    reportDir: results.xml
+
+  - name: tidb-build
+    taskType: build
+    shellScript: |
+      make
+    outputDir: bin/
+    buildEnv:
+      image: hub.pingcap.net/jenkins/centos7_golang-1.16:latest
