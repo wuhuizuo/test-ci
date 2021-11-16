@@ -1,0 +1,266 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuites>
+	<testsuite tests="1" failures="0" time="8.530000" name="github.com/tikv/pd/client" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/client" name="Test" time="8.530000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.000000" name="github.com/tikv/pd/pkg/assertutil" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/assertutil" name="Test" time="0.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.040000" name="github.com/tikv/pd/pkg/autoscaling" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/autoscaling" name="Test" time="0.040000"></testcase>
+	</testsuite>
+	<testsuite tests="12" failures="0" time="25.050000" name="github.com/tikv/pd/pkg/btree" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/btree" name="TestBTreeSizeInfo" time="1.300000"></testcase>
+		<testcase classname="github.com/tikv/pd/pkg/btree" name="TestBTree" time="6.090000"></testcase>
+		<testcase classname="github.com/tikv/pd/pkg/btree" name="TestDeleteMin" time="0.000000"></testcase>
+		<testcase classname="github.com/tikv/pd/pkg/btree" name="TestDeleteMax" time="0.000000"></testcase>
+		<testcase classname="github.com/tikv/pd/pkg/btree" name="TestAscendRange" time="0.000000"></testcase>
+		<testcase classname="github.com/tikv/pd/pkg/btree" name="TestDescendRange" time="0.000000"></testcase>
+		<testcase classname="github.com/tikv/pd/pkg/btree" name="TestAscendLessThan" time="0.000000"></testcase>
+		<testcase classname="github.com/tikv/pd/pkg/btree" name="TestDescendLessOrEqual" time="0.000000"></testcase>
+		<testcase classname="github.com/tikv/pd/pkg/btree" name="TestAscendGreaterOrEqual" time="0.000000"></testcase>
+		<testcase classname="github.com/tikv/pd/pkg/btree" name="TestDescendGreaterThan" time="0.000000"></testcase>
+		<testcase classname="github.com/tikv/pd/pkg/btree" name="TestCloneConcurrentOperations" time="17.660000"></testcase>
+		<testcase classname="github.com/tikv/pd/pkg/btree" name="ExampleBTree" time="0.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="7.000000" name="github.com/tikv/pd/pkg/cache" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/cache" name="TestCore" time="7.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.000000" name="github.com/tikv/pd/pkg/codec" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/codec" name="TestTable" time="0.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.000000" name="github.com/tikv/pd/pkg/component" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/component" name="Test" time="0.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.020000" name="github.com/tikv/pd/pkg/encryption" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/encryption" name="Test" time="0.020000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.000000" name="github.com/tikv/pd/pkg/errs" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/errs" name="Test" time="0.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="7.750000" name="github.com/tikv/pd/pkg/etcdutil" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/etcdutil" name="Test" time="7.750000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.000000" name="github.com/tikv/pd/pkg/keyutil" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/keyutil" name="Test" time="0.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.020000" name="github.com/tikv/pd/pkg/logutil" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/logutil" name="Test" time="0.020000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.000000" name="github.com/tikv/pd/pkg/metricutil" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/metricutil" name="Test" time="0.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.090000" name="github.com/tikv/pd/pkg/movingaverage" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/movingaverage" name="Test" time="0.090000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.000000" name="github.com/tikv/pd/pkg/slice" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/slice" name="Test" time="0.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="1.000000" name="github.com/tikv/pd/pkg/systimemon" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/systimemon" name="TestSystimeMonitor" time="1.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.010000" name="github.com/tikv/pd/pkg/typeutil" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/pkg/typeutil" name="TestTypeUtil" time="0.010000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="10.750000" name="github.com/tikv/pd/server" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server" name="TestServer" time="10.750000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="172.280000" name="github.com/tikv/pd/server/api" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/api" name="TestAPIServer" time="172.280000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="19.510000" name="github.com/tikv/pd/server/cluster" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/cluster" name="Test" time="19.510000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.050000" name="github.com/tikv/pd/server/config" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/config" name="Test" time="0.050000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="1.450000" name="github.com/tikv/pd/server/core" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/core" name="TestCore" time="1.450000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="16.840000" name="github.com/tikv/pd/server/election" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/election" name="Test" time="16.840000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="12.900000" name="github.com/tikv/pd/server/encryptionkm" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/encryptionkm" name="TestKeyManager" time="12.900000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.200000" name="github.com/tikv/pd/server/join" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/join" name="TestJoin" time="0.200000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.890000" name="github.com/tikv/pd/server/kv" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/kv" name="TestKV" time="0.890000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.010000" name="github.com/tikv/pd/server/region_syncer" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/region_syncer" name="Test" time="0.010000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.110000" name="github.com/tikv/pd/server/replication" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/replication" name="TestReplicationMode" time="0.110000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="62.940000" name="github.com/tikv/pd/server/schedule" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/schedule" name="Test" time="62.940000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="1.540000" name="github.com/tikv/pd/server/schedule/checker" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/schedule/checker" name="TestMergeChecker" time="1.540000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.040000" name="github.com/tikv/pd/server/schedule/filter" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/schedule/filter" name="Test" time="0.040000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.040000" name="github.com/tikv/pd/server/schedule/hbstream" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/schedule/hbstream" name="TestHeaertbeatStreams" time="0.040000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.010000" name="github.com/tikv/pd/server/schedule/labeler" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/schedule/labeler" name="TestT" time="0.010000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.110000" name="github.com/tikv/pd/server/schedule/operator" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/schedule/operator" name="Test" time="0.110000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.000000" name="github.com/tikv/pd/server/schedule/opt" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/schedule/opt" name="TestOpt" time="0.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.250000" name="github.com/tikv/pd/server/schedule/placement" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/schedule/placement" name="TestPlacement" time="0.250000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.000000" name="github.com/tikv/pd/server/schedule/rangelist" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/schedule/rangelist" name="TestRangeList" time="0.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="34.790000" name="github.com/tikv/pd/server/schedulers" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/schedulers" name="Test" time="34.790000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="2.550000" name="github.com/tikv/pd/server/statistics" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/server/statistics" name="TestStatistics" time="2.550000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.030000" name="github.com/tikv/pd/tools/pd-analysis/analysis" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/tools/pd-analysis/analysis" name="Test" time="0.030000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.000000" name="github.com/tikv/pd/tools/pd-ctl/pdctl" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/tools/pd-ctl/pdctl" name="TestGenCompleter" time="0.000000"></testcase>
+	</testsuite>
+	<testsuite tests="1" failures="0" time="0.190000" name="github.com/tikv/pd/tools/pd-simulator/simulator/simutil" timestamp="2021-11-16T10:43:07+08:00">
+		<properties>
+			<property name="go.version" value="go1.17 linux/amd64"></property>
+		</properties>
+		<testcase classname="github.com/tikv/pd/tools/pd-simulator/simulator/simutil" name="Test" time="0.190000"></testcase>
+	</testsuite>
+</testsuites>
