@@ -14,3 +14,8 @@ tasks:
     outputDir: bin/
     buildEnv:
       image: hub.pingcap.net/jenkins/centos7_golang-1.16:latest
+      
+      
+notify:
+  lark: [lark_id1, lark_id1]
+  email: [example1@google.com, example2@google.com]
