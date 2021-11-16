@@ -17,5 +17,5 @@ tasks:
       
       
 notify:
-  lark: [lark_id1, lark_id1]
-  email: [example1@google.com, example2@google.com]
+  larks: [lark_id1, lark_id1]
+  emails: [example1@google.com, example2@google.com]
