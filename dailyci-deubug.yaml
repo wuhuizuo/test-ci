@@ -17,5 +17,5 @@ tasks:
       
       
 notify:
-  larks: []
-  emails: [kevinsocial@outlook.com]
+  lark: []
+  email: [kevinsocial@outlook.com]
