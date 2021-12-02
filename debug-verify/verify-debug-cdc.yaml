@@ -5,7 +5,6 @@ tasks:
     taskType: lint
     shellScript: |
       make check
-      
   - name: build
     taskType: build
     shellScript: |
@@ -20,5 +19,57 @@ tasks:
       limit:
         cpu: 4
         mem: 8Gi
+
+  - name: dm-unit-test
+    taskType: unit-test
+    shellScript: |
+      make dm_unit_test_in_verify_ci
+    buildEnv:
+      image: hub.pingcap.net/jenkins/centos7_golang-1.16:latest
+      request:
+        cpu: 4
+        mem: 8Gi
+      limit:
+        cpu: 16
+        mem: 30Gi
+    utReportDir: dm-junit-report.xml
+    covReportDir: dm-coverage.xml
+    secretVar:
+      - secretID: codecov-token-ticdc
+        key: TICDC_CODECOV_TOKEN
+      - secretID: coveralls-token-ticdc
+        key: TICDC_COVERALLS_TOKEN
+
+  - name: dm-gosec
+    taskType: gosec
+    shellScript: |
+      gosec -fmt=junit-xml -out=results.xml -stdout -verbose=text -exclude=G103,G104,G204,G304,G307,G401,G404,G501,G505,G601 dm/... || true
+    reportDir: results.xml
+
+  - name: cdc-unit-test
+    taskType: unit-test
+    shellScript: |
+      make unit_test_in_verify_ci
+    buildEnv:
+      image: hub.pingcap.net/jenkins/centos7_golang-1.16:latest
+      request:
+        cpu: 4
+        mem: 8Gi
+      limit:
+        cpu: 16
+        mem: 30Gi
+    utReportDir: cdc-junit-report.xml
+    covReportDir: cdc-coverage.xml
+    secretVar:
+      - secretID: codecov-token-ticdc
+        key: TICDC_CODECOV_TOKEN
+      - secretID: coveralls-token-ticdc
+        key: TICDC_COVERALLS_TOKEN
+
+  - name: cdc-gosec
+    taskType: gosec
+    shellScript: |
+      gosec -fmt=junit-xml -out=results.xml -stdout -verbose=text -exclude=G103,G104,G204,G304,G307,G401,G404,G501,G505,G601 -exclude-dir=dm ./... || true
+    reportDir: results.xml
 
 notifyPolicy: IfPipelineFail
