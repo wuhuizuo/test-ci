@@ -21,3 +21,4 @@ tasks:
         cpu: 4
         mem: 8Gi
 
+notifyPolicy: IfPipelineFail
