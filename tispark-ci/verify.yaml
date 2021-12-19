@@ -10,9 +10,3 @@ tasks:
       mvn clean package -Dmaven.test.skip=true
     buildEnv:
       image: hub.pingcap.net/jenkins/centos7_golang-1.13_java:latest
-      request:
-        cpu: 4
-        mem: 8Gi
-      limit:
-        cpu: 4
-        mem: 8Gi 
