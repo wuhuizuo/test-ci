@@ -31,6 +31,11 @@ tasks:
     utReportDir: test_report
     covReportDir: coverage_report
     coverageRate: 50
+    secretVar:
+      - secretID: codecov-token-tidb
+        key: CODECOV_TOKEN
+      - secretID: codecov-api-token
+        key: CODECOV_API_TOKEN
       
       
 notify:
