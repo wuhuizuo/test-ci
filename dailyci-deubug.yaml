@@ -20,12 +20,14 @@ tasks:
     shellScript: |
       export log_level=warn
       mkdir -p coverage_report
+      mkdir -p test_report
       make br_unit_test_in_verify_ci
       mv test_coverage/br_cov.unit_test.out coverage_report/br.coverage
       make dumpling_unit_test_in_verify_ci
       mv test_coverage/dumpling_cov.unit_test.out coverage_report/dumpling.coverage
       make gotest_in_verify_ci
       mv test_coverage/tidb_cov.unit_test.out coverage_report/tidb.coverage
+      cp -r test_coverage/*.xml test_report/
     buildEnv:
       image: hub.pingcap.net/jenkins/centos7_golang-1.16:latest
     utReportDir: test_report
