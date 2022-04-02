@@ -23,6 +23,21 @@ tasks:
               memory: "4000Mi"
               cpu: "2000m"
 
+    - taskName: "tidb-cyclo" 
+      checkerName: "cyclo-check" 
+      params: 
+        shellScript: |
+            gocyclo -over 20 -avg -ignore "_test|pb.go" ./ | tee repo_cyclo.log  
+      timeout: 10 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "1000Mi"
+              cpu: "500m"
+          limits:
+              memory: "2000Mi"
+              cpu: "1000m"
+
     - taskName: "tidb-gosec" 
       checkerName: "gosec-check" 
       params: 
@@ -58,8 +73,8 @@ tasks:
       image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
       resources:  
           requests:
-              memory: "4000Mi"
-              cpu: "2000m"
+              memory: "16000Mi"
+              cpu: "8000m"
           limits:
               memory: "32000Mi"
               cpu: "16000m"
@@ -68,7 +83,59 @@ tasks:
           key: CODECOV_TOKEN
         - jenkinsID: codecov-api-token
           key: CODECOV_API_TOKEN
-          
+
+    - taskName: "tidb-race" 
+      checkerName: "ut-check" 
+      params: 
+        shellScript: |
+            cd ..
+            go install gotest.tools/gotestsum@latest
+            cd -
+            export log_level=debug
+            cd tools/check
+            go build -o ../bin/failpoint-ctl github.com/pingcap/failpoint/failpoint-ctl
+            cd ../..
+            find $$PWD/ -type d | grep -vE "(\.git|tools)" | xargs tools/bin/failpoint-ctl enable
+            gotestsum -f standard-verbose --junitfile test.xml  --packages="$(go list ./... | grep -v github.com/pingcap/tidb/cmd)" -- -timeout 25m -race -coverprofile=cov.out | grep -A 10 -B 10 "\-\-\- Fail"
+            gocov convert cov.out | gocov-xml > coverage.xml
+        utReport: test.xml
+        covReport: coverage.xml 
+      timeout: 60 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "4000Mi"
+              cpu: "2000m"
+          limits:
+              memory: "32000Mi"
+              cpu: "16000m"
+
+    - taskName: "tidb-leak" 
+      checkerName: "ut-check" 
+      params: 
+        shellScript: |
+            cd ..
+            go install gotest.tools/gotestsum@latest
+            cd -
+            export log_level=debug
+            cd tools/check
+            go build -o ../bin/failpoint-ctl github.com/pingcap/failpoint/failpoint-ctl
+            cd ../..
+            find $$PWD/ -type d | grep -vE "(\.git|tools)" | xargs tools/bin/failpoint-ctl enable
+            gotestsum --junitfile test.xml  --packages="$(go list ./... | grep -v github.com/pingcap/tidb/cmd)" -- -timeout 25m -p 8 -tags leak -coverprofile=cov.out | grep -A 10 -B 10 "\-\-\- Fail"
+            gocov convert cov.out | gocov-xml > coverage.xml
+        utReport: test.xml
+        covReport: coverage.xml
+      timeout: 60 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "4000Mi"
+              cpu: "2000m"
+          limits:
+              memory: "32000Mi"
+              cpu: "16000m"
+
     - taskName: "tidb-lint" 
       checkerName: "lint-check" 
       params: 
@@ -85,6 +152,182 @@ tasks:
               memory: "32000Mi"
               cpu: "20000m"
 
+    - taskName: "tidb-race-log" 
+      checkerName: "ut-check" 
+      params: 
+        shellScript: |
+            cd tools/check
+            go build -o ../bin/failpoint-ctl github.com/pingcap/failpoint/failpoint-ctl
+            cd ../..
+            find $$PWD/ -type d | grep -vE "(\.git|tools)" | xargs tools/bin/failpoint-ctl enable
+            go test -timeout 20m -race $(go list ./... | grep -v github.com/pingcap/tidb/cmd)
+        utReport: test.xml
+        covReport: coverage.xml
+      timeout: 60 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "4000Mi"
+              cpu: "2000m"
+          limits:
+              memory: "32000Mi"
+              cpu: "16000m"
+
+    - taskName: "tidb-common-test" 
+      checkerName: "jenkins-it-trigger-check" 
+      params: 
+        itJobName: tidb_ghpr_common_test
+      timeout: 120 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "100Mi"
+              cpu: "200m"
+          limits:
+              memory: "200Mi"
+              cpu: "400m"
+    
+    - taskName: "tidb-intergration-common-test" 
+      checkerName: "jenkins-it-trigger-check" 
+      params: 
+        itJobName: tidb_ghpr_integration_common_test
+      timeout: 120 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "100Mi"
+              cpu: "200m"
+          limits:
+              memory: "200Mi"
+              cpu: "400m"
+
+    - taskName: "tidb-intergration-campatibility-test" 
+      checkerName: "jenkins-it-trigger-check" 
+      params: 
+        itJobName: tidb_ghpr_integration_campatibility_test
+      timeout: 120 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "100Mi"
+              cpu: "200m"
+          limits:
+              memory: "200Mi"
+              cpu: "400m"
+
+    - taskName: "tidb-intergration-copr-test" 
+      checkerName: "jenkins-it-trigger-check" 
+      params: 
+        itJobName: tidb_ghpr_integration_copr_test
+      timeout: 120 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "100Mi"
+              cpu: "200m"
+          limits:
+              memory: "200Mi"
+              cpu: "400m"
+
+    - taskName: "tidb-intergration-ddl-test" 
+      checkerName: "jenkins-it-trigger-check" 
+      params: 
+        itJobName: tidb_ghpr_integration_ddl_test
+      timeout: 120 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "100Mi"
+              cpu: "200m"
+          limits:
+              memory: "200Mi"
+              cpu: "400m"
+
+    - taskName: "tidb-mybatis-test" 
+      checkerName: "jenkins-it-trigger-check" 
+      params: 
+        itJobName: tidb_ghpr_mybatis
+      timeout: 120 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "100Mi"
+              cpu: "200m"
+          limits:
+              memory: "200Mi"
+              cpu: "400m"
+
+
+    - taskName: "tidb-sqllogic-1-test" 
+      checkerName: "jenkins-it-trigger-check" 
+      params: 
+        itJobName: tidb_ghpr_sqllogic_test_1
+      timeout: 120 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "100Mi"
+              cpu: "200m"
+          limits:
+              memory: "200Mi"
+              cpu: "400m"
+
+    - taskName: "tidb-sqllogic-2-test" 
+      checkerName: "jenkins-it-trigger-check" 
+      params: 
+        itJobName: tidb_ghpr_sqllogic_test_2
+      timeout: 120 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "100Mi"
+              cpu: "200m"
+          limits:
+              memory: "200Mi"
+              cpu: "400m"
+
+    - taskName: "tidb-tics-test" 
+      checkerName: "jenkins-it-trigger-check" 
+      params: 
+        itJobName: tidb_ghpr_tics_test
+      timeout: 120 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "100Mi"
+              cpu: "200m"
+          limits:
+              memory: "200Mi"
+              cpu: "400m"
+
+    - taskName: "tidb-intergration-cdc-test" 
+      checkerName: "jenkins-it-trigger-check" 
+      params: 
+        itJobName: tidb_ghpr_integration_cdc_test
+      timeout: 120 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "100Mi"
+              cpu: "200m"
+          limits:
+              memory: "200Mi"
+              cpu: "400m"
+
+    - taskName: "tidb-intergration-br-test" 
+      checkerName: "jenkins-it-trigger-check" 
+      params: 
+        itJobName: tidb_ghpr_integration_br_test
+      timeout: 120 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "100Mi"
+              cpu: "200m"
+          limits:
+              memory: "200Mi"
+              cpu: "400m"
+
 notify:
     lark: [purelind]
-    email: []
+    email: [l]
