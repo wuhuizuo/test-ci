@@ -33,8 +33,8 @@ tasks:
       image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
       resources:  
           requests:
-              memory: "12000Mi"
-              cpu: "8000m"
+              memory: "20000Mi"
+              cpu: "20000m"
           limits:
               memory: "32000Mi"
               cpu: "32000m"
@@ -68,6 +68,22 @@ tasks:
           key: CODECOV_TOKEN
         - jenkinsID: codecov-api-token
           key: CODECOV_API_TOKEN
+          
+    - taskName: "tidb-lint" 
+      checkerName: "lint-check" 
+      params: 
+        shellScript: |
+            golangci-lint run --out-format=junit-xml -v ./... > golangci-lint-report.xml
+        reportDir: golangci-lint-report.xml
+      timeout: 60 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "16000Mi"
+              cpu: "8000m"
+          limits:
+              memory: "32000Mi"
+              cpu: "20000m"
 
 notify:
     lark: [purelind]
