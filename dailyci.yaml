@@ -13,7 +13,7 @@ tasks:
             make
         outputDir: "bin/"
       retry: 1   
-      timeout: 10 
+      timeout: 20 
       image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
       resources:  
           requests:
@@ -33,11 +33,11 @@ tasks:
       image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
       resources:  
           requests:
-              memory: "16000Mi"
-              cpu: "4000m"
+              memory: "12000Mi"
+              cpu: "8000m"
           limits:
               memory: "16000Mi"
-              cpu: "8000m"
+              cpu: "32000m"
 
     - taskName: "tidb-ut" 
       checkerName: "ut-cov-check" 
@@ -46,11 +46,11 @@ tasks:
             export log_level=warn
             mkdir -p coverage_report
             make br_unit_test_in_verify_ci || true
-            mv test_coverage/br_cov.unit_test.out coverage_report/br.coverage
+            mv test_coverage/br_cov.unit_test.out coverage_report/br.coverage || true
             make dumpling_unit_test_in_verify_ci || true
-            mv test_coverage/dumpling_cov.unit_test.out coverage_report/dumpling.coverage
-            make ut X="--junitfile test_coverage/tidb-junit-report.xml --coverprofile test_coverage/tidb_cov.unit_test.out" || true
-            mv test_coverage/tidb_cov.unit_test.out coverage_report/tidb.coverage
+            mv test_coverage/dumpling_cov.unit_test.out coverage_report/dumpling.coverage || true
+            make gotest_in_verify_ci || true
+            mv test_coverage/tidb_cov.unit_test.out coverage_report/tidb.coverage || true
         utReport: test_coverage/*.xml
         covReport: coverage_report/*.coverage
         coverageRate: 50  
@@ -69,5 +69,6 @@ tasks:
         - jenkinsID: codecov-api-token
           key: CODECOV_API_TOKEN
 
-
-
+notify:
+    lark: [purelind]
+    email: []
