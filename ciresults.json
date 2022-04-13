@@ -1,0 +1,169 @@
+[
+        {
+        "name": "tidb_ghpr_mybatis",
+        "type": "tidb-merge-ci-checker",
+        "result": "SUCCESS",
+        "fullDisplayName": "tidb_ghpr_mybatis #9058",
+        "buildNumber": "9058",
+        "summary": "all 1 tests passed",
+        "durationStr": "5 min 48 sec",
+        "duration": 348509,
+        "startTime": 1649847248622,
+        "url": "https://ci.pingcap.net/blue/organizations/jenkins/tidb_ghpr_mybatis/detail/tidb_ghpr_mybatis/9058/pipeline"
+    },
+        {
+        "name": "tidb_ghpr_integration_copr_test",
+        "type": "tidb-merge-ci-checker",
+        "result": "FAILURE",
+        "fullDisplayName": "tidb_ghpr_integration_copr_test #9047",
+        "buildNumber": "9047",
+        "summary": "failed 1, success 0, total 1",
+        "durationStr": "6 min 34 sec",
+        "duration": 394904,
+        "startTime": 1649847248622,
+        "url": "https://ci.pingcap.net/blue/organizations/jenkins/tidb_ghpr_integration_copr_test/detail/tidb_ghpr_integration_copr_test/9047/pipeline"
+    },
+        {
+        "name": "tidb_ghpr_sqllogic_test_2",
+        "type": "tidb-merge-ci-checker",
+        "result": "SUCCESS",
+        "fullDisplayName": "tidb_ghpr_sqllogic_test_2 #9134",
+        "buildNumber": "9134",
+        "summary": "all 28 tests passed",
+        "durationStr": "9 min 6 sec",
+        "duration": 546587,
+        "startTime": 1649847248623,
+        "url": "https://ci.pingcap.net/blue/organizations/jenkins/tidb_ghpr_sqllogic_test_2/detail/tidb_ghpr_sqllogic_test_2/9134/pipeline"
+    },
+        {
+        "name": "tidb_ghpr_common_test",
+        "type": "tidb-merge-ci-checker",
+        "result": "SUCCESS",
+        "fullDisplayName": "tidb_ghpr_common_test #9470",
+        "buildNumber": "9470",
+        "summary": "all 12 tests passed",
+        "durationStr": "9 min 46 sec",
+        "duration": 586262,
+        "startTime": 1649847248622,
+        "url": "https://ci.pingcap.net/blue/organizations/jenkins/tidb_ghpr_common_test/detail/tidb_ghpr_common_test/9470/pipeline"
+    },
+        {
+        "name": "tidb_ghpr_sqllogic_test_1",
+        "type": "tidb-merge-ci-checker",
+        "result": "SUCCESS",
+        "fullDisplayName": "tidb_ghpr_sqllogic_test_1 #9196",
+        "buildNumber": "9196",
+        "summary": "all 26 tests passed",
+        "durationStr": "9 min 52 sec",
+        "duration": 592286,
+        "startTime": 1649847248623,
+        "url": "https://ci.pingcap.net/blue/organizations/jenkins/tidb_ghpr_sqllogic_test_1/detail/tidb_ghpr_sqllogic_test_1/9196/pipeline"
+    },
+        {
+        "name": "tidb_ghpr_integration_ddl_test",
+        "type": "tidb-merge-ci-checker",
+        "result": "SUCCESS",
+        "fullDisplayName": "tidb_ghpr_integration_ddl_test #9259",
+        "buildNumber": "9259",
+        "summary": "all 6 tests passed",
+        "durationStr": "10 min",
+        "duration": 608076,
+        "startTime": 1649847248622,
+        "url": "https://ci.pingcap.net/blue/organizations/jenkins/tidb_ghpr_integration_ddl_test/detail/tidb_ghpr_integration_ddl_test/9259/pipeline"
+    },
+        {
+        "name": "tidb_ghpr_tics_test",
+        "type": "tidb-merge-ci-checker",
+        "result": "SUCCESS",
+        "fullDisplayName": "tidb_ghpr_tics_test #8888",
+        "buildNumber": "8888",
+        "summary": "all 1 tests passed",
+        "durationStr": "18 min",
+        "duration": 1086710,
+        "startTime": 1649847248623,
+        "url": "https://ci.pingcap.net/blue/organizations/jenkins/tidb_ghpr_tics_test/detail/tidb_ghpr_tics_test/8888/pipeline"
+    },
+        {
+        "name": "tidb_ghpr_integration_common_test",
+        "type": "tidb-merge-ci-checker",
+        "result": "SUCCESS",
+        "fullDisplayName": "tidb_ghpr_integration_common_test #10639",
+        "buildNumber": "10639",
+        "summary": "all 11 tests passed",
+        "durationStr": "19 min",
+        "duration": 1143337,
+        "startTime": 1649847248622,
+        "url": "https://ci.pingcap.net/blue/organizations/jenkins/tidb_ghpr_integration_common_test/detail/tidb_ghpr_integration_common_test/10639/pipeline"
+    },
+        {
+        "name": "tidb_ghpr_coverage",
+        "type": "tidb-merge-ci-checker",
+        "result": "SUCCESS",
+        "fullDisplayName": "tidb_ghpr_coverage #2999",
+        "buildNumber": "2999",
+        "summary": "Lines coverage: 63.47%",
+        "durationStr": "20 min",
+        "duration": 1218881,
+        "startTime": 1649847248623,
+        "url": "https://ci.pingcap.net/blue/organizations/jenkins/tidb_ghpr_coverage/detail/tidb_ghpr_coverage/2999/pipeline"
+    },
+        {
+        "name": "tidb_ghpr_integration_campatibility_test",
+        "type": "tidb-merge-ci-checker",
+        "result": "SUCCESS",
+        "fullDisplayName": "tidb_ghpr_integration_campatibility_test #10046",
+        "buildNumber": "10046",
+        "summary": "all 1 tests passed",
+        "durationStr": "28 min",
+        "duration": 1726983,
+        "startTime": 1649847248622,
+        "url": "https://ci.pingcap.net/blue/organizations/jenkins/tidb_ghpr_integration_campatibility_test/detail/tidb_ghpr_integration_campatibility_test/10046/pipeline"
+    },
+        {
+        "name": "tidb_ghpr_integration_br_test",
+        "type": "tidb-merge-ci-checker",
+        "result": "FAILURE",
+        "fullDisplayName": "tidb_ghpr_integration_br_test #8781",
+        "buildNumber": "8781",
+        "summary": "failed 16, success 13, total 29",
+        "durationStr": "31 min",
+        "duration": 1881210,
+        "startTime": 1649847248576,
+        "url": "https://ci.pingcap.net/blue/organizations/jenkins/tidb_ghpr_integration_br_test/detail/tidb_ghpr_integration_br_test/8781/pipeline"
+    },
+        {
+        "name": "tidb_ghpr_integration_cdc_test",
+        "type": "tidb-merge-ci-checker",
+        "result": "SUCCESS",
+        "fullDisplayName": "tidb_ghpr_integration_cdc_test #1812",
+        "buildNumber": "1812",
+        "summary": "all 34 tests passed",
+        "durationStr": "42 min",
+        "duration": 2565892,
+        "startTime": 1649847248623,
+        "url": "https://ci.pingcap.net/blue/organizations/jenkins/tidb_ghpr_integration_cdc_test/detail/tidb_ghpr_integration_cdc_test/1812/pipeline"
+    },
+        {
+        "name": "tidb-merge-ci",
+        "result": "FAILURE",
+        "type": "mergeci-pipeline",
+        "buildNumber": "3624",
+        "commitID": "8f5582a1efd631ccbbd1179a7bf45220b2923e7a",
+        "branch": "master",
+        "prID": "33810",
+        "repo": "tidb",
+        "org": "pingcap",
+        "url": "https://ci.pingcap.net/job/tidb_integration_test_ci/3624/display/redirect",
+        "startTime": 1649846690592,
+        "duration": 3137777,
+        "trigger": "tidb-merge-ci"
+    },
+        {
+        "name": "ci-notify",
+        "type": "ci-notify",
+        "lark":         [
+            "purelind"
+        ],
+        "email": []
+    }
+]
