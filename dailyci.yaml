@@ -6,6 +6,42 @@ triggers:
     - cronString: "15 0 * * *" 
       defaultRef: "master"
 tasks:
+    - taskName: "tidb-gosec" 
+      checkerName: "gosec-check" 
+      params: 
+        shellScript: |
+            gosec -exclude-generated -fmt=junit-xml -out=results.xml -stdout -verbose=text -exclude=G103,G104,G201,G204,G304,G307,G401,G404,G501,G505,G601 ./...
+        reportDir: results.xml
+      timeout: 60 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "20000Mi"
+              cpu: "20000m"
+          limits:
+              memory: "32000Mi"
+              cpu: "32000m"
+              
+    - taskName: "tidb-race" 
+      checkerName: "ut-check" 
+      params: 
+        shellScript: |
+            make tools/bin/ut
+            make tools/bin/xprog
+            make race
+            gocov convert test_coverage/tidb_cov.unit_test | gocov-xml > coverage.xml
+        utReport: test_coverage/tidb-junit-report.xml
+        covReport: coverage.xml
+      timeout: 60 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "4000Mi"
+              cpu: "2000m"
+          limits:
+              memory: "32000Mi"
+              cpu: "16000m"
+              
     - taskName: "tidb-build" 
       checkerName: "build-check" 
       params:  
