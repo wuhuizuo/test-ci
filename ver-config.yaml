@@ -9,7 +9,60 @@ triggers:
       onComment:
       - "/verify"
 tasks:
-    - taskName: "tiem-ut" 
+    - taskName: "tiem-ut4" 
+      checkerName: "ut-check" 
+      params:  
+        shellScript: |
+            make ci_test
+        utReport: test.xml
+        covReport: coverage.xml
+        coverageRate: 80
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.16:latest"  
+      resources:  
+          requests:
+              memory: "8000Mi"
+              cpu: "4000m"
+          limits:
+              memory: "16000Mi"
+              cpu: "8000m"
+    - taskName: "tiem-ut-5" 
+      checkerName: "ut-check" 
+      params:  
+        shellScript: |
+            go version
+            export LC_CTYPE="en_US.UTF-8"
+            make ci_test
+        utReport: test.xml
+        covReport: coverage.xml
+        coverageRate: 80
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.16:latest"  
+      resources:  
+          requests:
+              memory: "8000Mi"
+              cpu: "4000m"
+          limits:
+              memory: "16000Mi"
+              cpu: "8000m"
+    - taskName: "tiem-ut-6" 
+      checkerName: "ut-check" 
+      params:  
+        shellScript: |
+            go version
+            export LC_CTYPE="en_US.UTF-8"
+            make ci_test
+        utReport: test.xml
+        covReport: coverage.xml
+        coverageRate: 80
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.16:latest"  
+      resources:  
+          requests:
+              memory: "8000Mi"
+              cpu: "4000m"
+          limits:
+              memory: "16000Mi"
+              cpu: "8000m"
+
+    - taskName: "tiem-ut-1" 
       checkerName: "ut-check" 
       params:  
         shellScript: |
