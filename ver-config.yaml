@@ -1,0 +1,64 @@
+pipelineName: tiem-verify-pipeline 
+repo: pingcap-inc/tiem
+defaultRef: master 
+triggers:
+  pullRequest:
+      onBranch:
+      - "master"
+      - "release-*"
+      onComment:
+      - "/verify"
+tasks:
+    - taskName: "tiem-ut" 
+      checkerName: "ut-check" 
+      params:  
+        shellScript: |
+            make ci_test
+        utReport: test.xml
+        covReport: coverage.xml
+        coverageRate: 80
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.16:latest"  
+      resources:  
+          requests:
+              memory: "8000Mi"
+              cpu: "4000m"
+          limits:
+              memory: "16000Mi"
+              cpu: "8000m"
+    - taskName: "tiem-ut-2" 
+      checkerName: "ut-check" 
+      params:  
+        shellScript: |
+            go version
+            export LC_CTYPE="en_US.UTF-8"
+            make ci_test
+        utReport: test.xml
+        covReport: coverage.xml
+        coverageRate: 80
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.16:latest"  
+      resources:  
+          requests:
+              memory: "8000Mi"
+              cpu: "4000m"
+          limits:
+              memory: "16000Mi"
+              cpu: "8000m"
+    - taskName: "tiem-ut-3" 
+      checkerName: "ut-check" 
+      params:  
+        shellScript: |
+            go version
+            export LC_CTYPE="en_US.UTF-8"
+            make ci_test
+        utReport: test.xml
+        covReport: coverage.xml
+        coverageRate: 80
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.16:latest"  
+      resources:  
+          requests:
+              memory: "8000Mi"
+              cpu: "4000m"
+          limits:
+              memory: "16000Mi"
+              cpu: "8000m"
+
