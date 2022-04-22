@@ -26,9 +26,14 @@ tasks:
       checkerName: "ut-check" 
       params: 
         shellScript: |
+            cd ..
+            go install github.com/axw/gocov/gocov@latest
+            go install github.com/AlekSi/gocov-xml@latest
+            cd -
             make tools/bin/ut
             make tools/bin/xprog
             make race
+            gocov convert test_coverage/tidb_cov.unit_test | gocov-xml > coverage.xml
         utReport: test_coverage/tidb-junit-report.xml
         covReport: coverage.xml
       timeout: 60 
