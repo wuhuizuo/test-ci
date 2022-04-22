@@ -10,7 +10,7 @@ tasks:
       checkerName: "gosec-check" 
       params: 
         shellScript: |
-            gosec -exclude-generated -fmt=junit-xml -out=results.xml -stdout -verbose=text -exclude=G103,G104,G201,G204,G304,G307,G401,G404,G501,G505,G601 ./...
+            gosec -exclude-generated -fmt=junit-xml -out=results.xml -stdout -verbose=text -exclude=G103,G104,G201,G204,G304,G307,G401,G404,G501,G505,G601 ./... || true
         reportDir: results.xml
       timeout: 60 
       image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
@@ -29,7 +29,6 @@ tasks:
             make tools/bin/ut
             make tools/bin/xprog
             make race
-            gocov convert test_coverage/tidb_cov.unit_test | gocov-xml > coverage.xml
         utReport: test_coverage/tidb-junit-report.xml
         covReport: coverage.xml
       timeout: 60 
