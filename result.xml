@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<testsuites>
+  <testsuite id="0" name="cargo test #0" package="testsuite/cargo test #0" tests="167" errors="0" failures="1" hostname="localhost" timestamp="2022-06-14T18:06:08.894695736+00:00" time="0">
+    <testcase name="test_config_validate" classname="coprocessor::config::tests" time="0" />
+    <testcase name="test_update_context" classname="coprocessor::consistency_check::tests" time="0" />
+    <testcase name="test_order" classname="coprocessor::dispatcher::tests" time="0" />
+    <testcase name="test_trigger_right_hook" classname="coprocessor::dispatcher::tests" time="0" />
+    <testcase name="test_basic_updating" classname="coprocessor::region_info_accessor::tests" time="0" />
+    <testcase name="test_clear_overlapped_regions" classname="coprocessor::region_info_accessor::tests" time="0" />
+    <testcase name="test_epoch_stale_check" classname="coprocessor::region_info_accessor::tests" time="0" />
+    <testcase name="test_extreme_cases" classname="coprocessor::region_info_accessor::tests" time="0" />
+    <testcase name="test_ignore_invalid_version" classname="coprocessor::region_info_accessor::tests" time="0" />
+    <testcase name="test_merge" classname="coprocessor::region_info_accessor::tests" time="0" />
+    <testcase name="test_range_key" classname="coprocessor::region_info_accessor::tests" time="0" />
+    <testcase name="test_split" classname="coprocessor::region_info_accessor::tests" time="0" />
+    <testcase name="test_generate_region_bucket" classname="coprocessor::split_check::half::tests" time="0" />
+    <testcase name="test_generate_region_bucket_mvcc" classname="coprocessor::split_check::half::tests" time="0" />
+    <testcase name="test_generate_region_bucket_with_deleting_data" classname="coprocessor::split_check::half::tests" time="0" />
+    <testcase name="test_get_region_approximate_middle_cf" classname="coprocessor::split_check::half::tests" time="0" />
+    <testcase name="test_split_check" classname="coprocessor::split_check::half::tests" time="0" />
+    <testcase name="test_calc_split_keys_count" classname="coprocessor::split_check::keys::tests" time="0" />
+    <testcase name="test_check_split_region_with_scan_keys_and_bucket_enabled" classname="coprocessor::split_check::keys::tests" time="0" /> 
+    <testcase name="test_region_approximate_keys" classname="coprocessor::split_check::keys::tests" time="0" /> 
+    <testcase name="test_region_approximate_keys_sub_region" classname="coprocessor::split_check::keys::tests" time="0" /> 
+    <testcase name="test_split_check" classname="coprocessor::split_check::keys::tests" time="0" />
+    <testcase name="test_split_check_by_approximate_keys" classname="coprocessor::split_check::keys::tests" time="0" />
+    <testcase name="bench_get_region_approximate_size" classname="coprocessor::split_check::size::tests" time="0" />
+    <testcase name="test_cf_lock_without_range_prop" classname="coprocessor::split_check::size::tests" time="0" />
+    <testcase name="test_check_policy_for_bucket_generation" classname="coprocessor::split_check::size::tests" time="0" />
+    <testcase name="test_checker_with_max_twice_bigger_than_split_size" classname="coprocessor::split_check::size::tests" time="0" />
+    <testcase name="test_checker_with_same_max_and_split_size" classname="coprocessor::split_check::size::tests" time="0">
+      <failure type="cargo test" message="failed coprocessor::split_check::size::tests::test_checker_with_same_max_and_split_size" />
+    </testcase>
+    <testcase name="test_generate_bucket_by_approximate" classname="coprocessor::split_check::size::tests" time="0" />
+    <testcase name="test_generate_bucket_mvcc_by_approximate" classname="coprocessor::split_check::size::tests" time="0" />
+    <testcase name="test_get_approximate_split_keys" classname="coprocessor::split_check::size::tests" time="0" />
+    <testcase name="test_get_approximate_split_keys_error" classname="coprocessor::split_check::size::tests" time="0" />
+    <testcase name="test_region_approximate_size" classname="coprocessor::split_check::size::tests" time="0" />
+    <testcase name="test_region_maybe_inaccurate_approximate_size" classname="coprocessor::split_check::size::tests" time="0" />
+    <testcase name="test_split_check" classname="coprocessor::split_check::size::tests" time="0" />
+    <testcase name="test_last_key_of_region" classname="coprocessor::split_check::table::tests" time="0" />
+    <testcase name="test_table_check_observer" classname="coprocessor::split_check::table::tests" time="0" />
+    <testcase name="test_forget_encode" classname="coprocessor::split_observer::tests" time="0" />
+    <testcase name="test_split" classname="coprocessor::split_observer::tests" time="0" />
+    <testcase name="test_observe_level" classname="coprocessor::tests" time="0" />
+    <testcase name="test_basic_flow" classname="store::async_io::write::tests" time="0" />
+    <testcase name="test_worker" classname="store::async_io::write::tests" time="0" />
+    <testcase name="test_write_router_no_schedule" classname="store::async_io::write_router::tests" time="0" />
+    <testcase name="test_write_router_schedule" classname="store::async_io::write_router::tests" time="0" />
+    <testcase name="test_bootstrap" classname="store::bootstrap::tests" time="0" />
+    <testcase name="test_compaction_guard_non_data" classname="store::compaction_guard::tests" time="0" />
+    <testcase name="test_compaction_guard_should_partition" classname="store::compaction_guard::tests" time="0" />
+    <testcase name="test_compaction_guard_should_partition_binary_search" classname="store::compaction_guard::tests" time="0" />
+    <testcase name="test_compaction_guard_with_rocks" classname="store::compaction_guard::tests" time="0" />
+    <testcase name="test_config_validate" classname="store::config::tests" time="0" />
+    <testcase name="pending_cmd_leak" classname="store::fsm::apply::tests" time="0" />
+    <testcase name="pending_cmd_leak_dtor_not_abort" classname="store::fsm::apply::tests" time="0" />
+    <testcase name="test_basic_flow" classname="store::fsm::apply::tests" time="0" />
+    <testcase name="test_bucket_version_change_in_try_batch" classname="store::fsm::apply::tests" time="0" />
+    <testcase name="test_check_sst_for_ingestion" classname="store::fsm::apply::tests" time="0" />
+    <testcase name="test_cmd_observer" classname="store::fsm::apply::tests" time="0" />
+    <testcase name="test_handle_ingest_sst" classname="store::fsm::apply::tests" time="0" />
+  </testsuite>
+</testsuites>
+-- VISUAL --                                                                                                                                        4         22,65         Top
