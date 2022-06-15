@@ -61,4 +61,4 @@
     <testcase name="test_cmd_observer" classname="store::fsm::apply::tests" time="0" />
     <testcase name="test_handle_ingest_sst" classname="store::fsm::apply::tests" time="0" />
   </testsuite>
-</testsuites>                                                                                                                                    4         22,65         Top
+</testsuites>
