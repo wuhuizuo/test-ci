@@ -1,43 +1,47 @@
-version: 1
-defaultRef: master
-
+pipelineName: tidb-daily-pipeline 
+repo: pingcap/tidb 
+defaultRef: master 
+triggers:
+    crons:
+    - cronString: "15 0 * * *" 
+      defaultRef: "master"
 tasks:
-  - name: tidb-cyclo
-    taskType: cyclo
-    shellScript: |
-      gocyclo -over 20 -avg -ignore "_test|pb.go" ./ | tee repo_cyclo.log
+    - taskName: "tidb-build" 
+      checkerName: "build-check" 
+      params:  
+        shellScript: |
+            make
+        outputDir: "bin/"
+      retry: 1   
+      timeout: 20 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
+      resources:  
+          requests:
+              memory: "2000Mi"
+              cpu: "1000m"
+          limits:
+              memory: "4000Mi"
+              cpu: "2000m"
 
-  - name: tidb-build
-    taskType: build
-    shellScript: |
-      make
-    outputDir: bin/
-    buildEnv:
-      image: hub.pingcap.net/jenkins/centos7_golang-1.16:latest
-      
-  - name: tidb-ut
-    taskType: atom-ut-codecov
-    shellScript: |
-      export log_level=warn
-      mkdir -p coverage_report
-      make br_unit_test_in_verify_ci || true
-      mv test_coverage/br_cov.unit_test.out coverage_report/br.coverage
-      make dumpling_unit_test_in_verify_ci || true
-      mv test_coverage/dumpling_cov.unit_test.out coverage_report/dumpling.coverage
-      make gotest_in_verify_ci || true
-      mv test_coverage/tidb_cov.unit_test.out coverage_report/tidb.coverage
-    buildEnv:
-      image: hub.pingcap.net/jenkins/centos7_golang-1.16:latest
-    utReport: test_coverage/*.xml
-    covReport: coverage_report/*.coverage
-    coverageRate: 50
-    secretVar:
-      - secretID: codecov-token-tidb
-        key: CODECOV_TOKEN
-      - secretID: codecov-api-token
-        key: CODECOV_API_TOKEN
-      
-      
+   
+    - taskName: "tidb-chain-bench" 
+      checkerName: "common-check" 
+      params: 
+        shellScript: |
+             /home/jenkins/chain-bench scan --repository-url https://github.com/pingcap/tidb --access-token ${CHAIN_BENCH_TOKEN} -o output.json
+      timeout: 60 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:chain-bench"
+      credentials:
+        - jenkinsID: chain-bench-token
+          key: CHAIN_BENCH_TOKEN
+      resources:  
+          requests:
+              memory: "8000Mi"
+              cpu: "4000m"
+          limits:
+              memory: "8000Mi"
+              cpu: "4000m"
+
 notify:
-  lark: []
-  email: [kevinsocial@outlook.com]
+    lark: [purelind]
+    email: [lifu.wu@pingcap.com]
