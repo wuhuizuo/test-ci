@@ -2,4 +2,5 @@
 test ci logic
 
 
-add some test on branch cool_feature
+1. add some test on branch cool_feature
+2. add some test things on branch cool_feature
