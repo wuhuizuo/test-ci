@@ -24,24 +24,19 @@ tasks:
               cpu: "2000m"
 
    
-    - taskName: "tidb-chain-bench" 
-      checkerName: "common-check" 
+    - taskName: "tidb_ghpr_ingration_enterprise_plugin_test" 
+      checkerName: "jenkins-it-trigger-check" 
       params: 
-        shellScript: |
-             /home/jenkins/chain-bench scan --repository-url https://github.com/pingcap/tidb --access-token ${CHAIN_BENCH_TOKEN} -o output.json
-      timeout: 60 
-      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:chain-bench"
-      credentials:
-        - jenkinsID: chain-bench-token
-          key: CHAIN_BENCH_TOKEN
+        itJobName: tidb_ghpr_ingration_enterprise_plugin_test
+      timeout: 120 
+      image: "hub.pingcap.net/jenkins/centos7_golang-1.18:latest"  
       resources:  
           requests:
-              memory: "8000Mi"
-              cpu: "4000m"
+              memory: "100Mi"
+              cpu: "200m"
           limits:
-              memory: "8000Mi"
-              cpu: "4000m"
-
+              memory: "200Mi"
+              cpu: "400m"
 notify:
     lark: [purelind]
     email: [lifu.wu@pingcap.com]
