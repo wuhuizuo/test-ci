@@ -2,7 +2,7 @@
         {
         "name": "tidb_ghpr_integration_campatibility_test",
         "type": "tidb-merge-ci-checker",
-        "result": "SUCCESS",
+        "result": "",
         "fullDisplayName": "tidb_ghpr_integration_campatibility_test #10051",
         "buildNumber": "10051",
         "summary": "all 1 tests passed",
