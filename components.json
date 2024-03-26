@@ -3,16 +3,14 @@
     {
       "name": "binlog",
       "version": "v7.5.0",
-      "commit_hash": "4a2ed99c466e02d0f441b742d7e62a1c67150f52",
+      "commit_hash": "4a2ed99c466e02d0f441b742d7e62a1c67150f52"
     }
-    // Add more Docker images here
   ],
   "tiup_packages": [
     {
-      "name": "pd",
-      "version": "v7.5.0",
-      "commit_hash": "4a2ed99c466e02d0f441b742d7e62a1c67150f52"
+    "name": "pd",
+    "version": "v7.5.0",
+    "commit_hash": "4a2ed99c466e02d0f441b742d7e62a1c67150f52"
     }
-    // Add more TiUP packages here
   ]
 }
