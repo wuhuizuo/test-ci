@@ -6,6 +6,11 @@
       "commit_hash": "4a2ed99c466e02d0f441b742d7e62a1c67150f52"
     },
     {
+      "name": "br",
+      "version": "v7.5.1",
+      "commit_hash": "7d16cc79e81bbf573124df3fd9351c26963f3e70"
+    },
+    {
       "name": "tidb",
       "version": "v7.5.1",
       "commit_hash": "7d16cc79e81bbf573124df3fd9351c26963f3e70"
@@ -104,6 +109,11 @@
     },
     {
       "name": "lightning",
+      "version": "v7.5.1",
+      "commit_hash": "7d16cc79e81bbf573124df3fd9351c26963f3e70"
+    },
+    {
+      "name": "br",
       "version": "v7.5.1",
       "commit_hash": "7d16cc79e81bbf573124df3fd9351c26963f3e70"
     },
