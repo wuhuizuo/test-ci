@@ -3,7 +3,7 @@
     {
       "name": "binlog",
       "version": "v6.5.10",
-      "commit_hash": "62ff2dfadf7a80b7436ff6fe2f1758f2122923b5"
+      "commit_hash": "edafaf86ceee8abbc84b2e5fe4e4e6d89bc05b62"
     },
     {
       "name": "br",
@@ -70,7 +70,7 @@
     {
       "name": "binlog",
       "version": "v6.5.10",
-      "commit_hash": "62ff2dfadf7a80b7436ff6fe2f1758f2122923b5"
+      "commit_hash": "edafaf86ceee8abbc84b2e5fe4e4e6d89bc05b62"
     },
     {
       "name": "br",
