@@ -113,11 +113,6 @@
       "commit_hash": "3f2073261bf9f454c3c677d76d120c6ab40ca05c"
     },
     {
-      "name": "tidb-dashboard",
-      "version": "v6.5.11",
-      "commit_hash": "9d2b0ce603a14e95b2db83f3d2ebcd8b67d7ab90"
-    },
-    {
       "name": "lightning",
       "version": "v6.5.11",
       "commit_hash": "3f2073261bf9f454c3c677d76d120c6ab40ca05c"
