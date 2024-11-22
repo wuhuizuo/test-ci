@@ -62,7 +62,7 @@ start_tikv() {
         --status-addr "$TIKV_STATUS_ADDR" \
         --log-file "$WORK_DIR/tikv.log" \
         --log-level info \
-        -s "$WORK_DIR/tikv" > "$WORK_DIR/tikv_start.log" 2>&1 &
+        -s "$WORK_DIR/tikv"
     
     tikv_pid=$!
     
