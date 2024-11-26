@@ -120,7 +120,7 @@ start_tikv() {
 
 start_tidb() {
 	echo "Starting TiDB..."
-	bin/tidb-server --version
+	bin/tidb-server -V
 	bin/tidb-server \
 		-P 4000 \
 		--status 10080 \
@@ -128,7 +128,7 @@ start_tidb() {
 		--store tikv \
 		--path "$PD_ADDR" \
 		--log-file "$WORK_DIR/tidb.log" &
-	sleep 10
+	sleep 5
 	# wait until TiDB is online...
 	i=0
 	while true; do
