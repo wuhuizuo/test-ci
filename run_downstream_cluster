@@ -39,7 +39,13 @@ EOF
 	# sleep 10
 	# wait until PD is online...
 	echo "after start PD...."
-	cat "$WORK_DIR/pd.log"
+	cat "$WORK_DIR/pd.log" || true
+	sleep 5
+	echo "after sleep 5"
+	cat "$WORK_DIR/pd.log" || true
+	sleep 5
+	echo "after sleep 5"
+	cat "$WORK_DIR/pd.log" || true
 	i=0
 	while true; do
 		response=$(curl -s -o /dev/null -w "%{http_code}" "http://$PD_ADDR/pd/api/v1/version")
