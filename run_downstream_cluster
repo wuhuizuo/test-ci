@@ -33,7 +33,7 @@ EOF
 		--config "$WORK_DIR/pd.toml" \
 		--data-dir "$WORK_DIR/pd" &
 	
-	sleep 10
+	# sleep 10
 	# wait until PD is online...
 	echo "after start PD...."
 	i=0
@@ -66,10 +66,7 @@ start_tikv() {
 		--log-level info \
 		-s "$WORK_DIR/tikv" &
 
-	echo "sleep 10 sec"
-	sleep 10
-	echo "sleep with return code: $?"
-	echo "start check tikv cluster status"
+	# sleep 10
 	i=0
 	while ! curl "http://$PD_ADDR/pd/api/v1/cluster/status" | tee /dev/stderr | grep '"is_initialized": true'; do
 			i=$((i + 1))
