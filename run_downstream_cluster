@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # tools to run a TiDB cluster
 # parameter 1: work directory
 set -eux
