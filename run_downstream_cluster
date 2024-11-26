@@ -68,13 +68,13 @@ start_tikv() {
 	echo "Starting TiKV..."
 	mkdir -p "$WORK_DIR/tikv"
 	bin/tikv-server --version
-  	bin/tikv-server \
+  	nohup bin/tikv-server \
 		--pd "$PD_ADDR" \
 		-A "$TIKV_ADDR" \
 		--status-addr "$TIKV_STATUS_ADDR" \
 		--log-file "$WORK_DIR/tikv.log" \
 		--log-level info \
-		-s "$WORK_DIR/tikv" &
+		-s "$WORK_DIR/tikv" 2>&1 & || true
 
 	# sleep 10
 	# sleep 10
