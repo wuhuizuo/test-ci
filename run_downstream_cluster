@@ -15,9 +15,6 @@ export TIDB_STATUS_ADDR="127.0.0.1:10080"
 export TIKV_ADDR="127.0.0.1:2016"
 export TIKV_STATUS_ADDR="127.0.0.1:2018"
 
-echo "test sleep 5"
-sleep 5
-
 start_pd() {
 	echo "Starting PD..."
 
@@ -27,7 +24,7 @@ start_pd() {
 max-replicas = 1
 EOF
 
-	pd-server --version
+	bin/pd-server --version
 	mkdir -p "$WORK_DIR/pd"
 	bin/pd-server \
 		--client-urls "http://$PD_ADDR" \
@@ -35,17 +32,7 @@ EOF
 		--log-file "$WORK_DIR/pd.log" \
 		--config "$WORK_DIR/pd.toml" \
 		--data-dir "$WORK_DIR/pd" &
-	
-	# sleep 10
-	# wait until PD is online...
-	echo "after start PD...."
-	cat "$WORK_DIR/pd.log" || true
 	sleep 5
-	echo "after sleep 5"
-	cat "$WORK_DIR/pd.log" || true
-	sleep 5
-	echo "after sleep 5"
-	cat "$WORK_DIR/pd.log" || true
 	i=0
 	while true; do
 		response=$(curl -s -o /dev/null -w "%{http_code}" "http://$PD_ADDR/pd/api/v1/version")
@@ -75,18 +62,7 @@ start_tikv() {
 		--log-file "$WORK_DIR/tikv.log" \
 		--log-level info \
 		-s "$WORK_DIR/tikv" > /dev/null 2>&1 &
-
-	# sleep 10
-	# sleep 10
-	# wait until TiKV is online...
-	echo "after start TiKV...."
-	cat "$WORK_DIR/tikv.log" || true
 	sleep 5
-	echo "after sleep 5"
-	cat "$WORK_DIR/tikv.log" || true
-	sleep 5
-	echo "after sleep 5"
-	cat "$WORK_DIR/tikv.log" || true
 	i=0
 	while true; do
 		# 将 curl 的输出保存到变量中，同时处理可能的错误
