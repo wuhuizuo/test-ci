@@ -87,16 +87,35 @@ start_tikv() {
 	sleep 5
 	echo "after sleep 5"
 	cat "$WORK_DIR/tikv.log" || true
-	# i=0
-	# while ! curl "http://$PD_ADDR/pd/api/v1/cluster/status" | tee /dev/stderr | grep '"is_initialized": true'; do
-	# 	i=$((i + 1))
-	# 	if [ "$i" -gt 20 ]; then
-	# 		echo 'Failed to initialize TiKV cluster'
-	# 		return 1
-	# 	fi
-	# 	echo 'Waiting for TiKV ready...'
-	# 	sleep 5
-	# done
+	i=0
+	while true; do
+		# 将 curl 的输出保存到变量中，同时处理可能的错误
+		response=$(curl -s "http://$PD_ADDR/pd/api/v1/cluster/status" || echo "")
+		
+		# 如果响应为空，说明 curl 失败
+		if [ -z "$response" ]; then
+			echo "Failed to connect to PD server"
+		else
+			# 输出响应用于调试
+			echo "PD response: $response"
+			
+			# 检查初始化状态
+			if echo "$response" | grep -q '"is_initialized": true'; then
+				echo "TiKV cluster initialized successfully"
+				break
+			fi
+		fi
+		
+		i=$((i + 1))
+		if [ "$i" -gt 20 ]; then
+			echo 'Failed to initialize TiKV cluster after 20 attempts'
+			echo "Last response: $response"
+			return 1
+		fi
+		
+		echo 'Waiting for TiKV ready...'
+		sleep 5
+	done
 }
 
 start_tidb() {
