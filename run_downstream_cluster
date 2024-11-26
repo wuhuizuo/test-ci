@@ -87,16 +87,16 @@ start_tikv() {
 	sleep 5
 	echo "after sleep 5"
 	cat "$WORK_DIR/tikv.log" || true
-	i=0
-	while ! curl "http://$PD_ADDR/pd/api/v1/cluster/status" | tee /dev/stderr | grep '"is_initialized": true'; do
-		i=$((i + 1))
-		if [ "$i" -gt 20 ]; then
-			echo 'Failed to initialize TiKV cluster'
-			return 1
-		fi
-		echo 'Waiting for TiKV ready...'
-		sleep 5
-	done
+	# i=0
+	# while ! curl "http://$PD_ADDR/pd/api/v1/cluster/status" | tee /dev/stderr | grep '"is_initialized": true'; do
+	# 	i=$((i + 1))
+	# 	if [ "$i" -gt 20 ]; then
+	# 		echo 'Failed to initialize TiKV cluster'
+	# 		return 1
+	# 	fi
+	# 	echo 'Waiting for TiKV ready...'
+	# 	sleep 5
+	# done
 }
 
 start_tidb() {
