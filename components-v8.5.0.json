@@ -43,7 +43,7 @@
     {
       "name": "tidb-dashboard",
       "version": "v8.5.0",
-      "commit_hash": "5d1f7280d5d8a7f97b5791b31c7ee300ff31229b"
+      "commit_hash": "358548e82b7b0cf97d6b8c9b929f66397856f0db"
     },
     {
       "name": "lightning",
@@ -105,7 +105,7 @@
     {
       "name": "tidb-dashboard",
       "version": "v8.5.0",
-      "commit_hash": "5d1f7280d5d8a7f97b5791b31c7ee300ff31229b"
+      "commit_hash": "358548e82b7b0cf97d6b8c9b929f66397856f0db"
     },
     {
       "name": "lightning",
