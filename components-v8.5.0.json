@@ -53,7 +53,7 @@
     {
       "name": "ng-monitoring",
       "version": "v8.5.0",
-      "commit_hash": "36a4c01f0d0bcf17986da64e1f0634980419a93d"
+      "commit_hash": "0c5bbdc74ec73d48e0c0ab907d6815805292fcf9"
     },
     {
       "name": "enterprise-plugin",
@@ -115,7 +115,7 @@
     {
       "name": "ng-monitoring",
       "version": "v8.5.0",
-      "commit_hash": "36a4c01f0d0bcf17986da64e1f0634980419a93d"
+      "commit_hash": "0c5bbdc74ec73d48e0c0ab907d6815805292fcf9"
     },
     {
       "name": "enterprise-plugin",
