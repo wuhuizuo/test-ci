@@ -13,7 +13,7 @@
     {
       "name": "tikv",
       "version": "v8.5.0",
-      "commit_hash": "7cd944ba837182c5e48d873997d6f3fa4462e436"
+      "commit_hash": "a2c58c94f89cbb410e66d8f85c236308d6fc64f0"
     },
     {
       "name": "pd",
@@ -75,7 +75,7 @@
     {
       "name": "tikv",
       "version": "v8.5.0",
-      "commit_hash": "7cd944ba837182c5e48d873997d6f3fa4462e436"
+      "commit_hash": "a2c58c94f89cbb410e66d8f85c236308d6fc64f0"
     },
     {
       "name": "pd",
