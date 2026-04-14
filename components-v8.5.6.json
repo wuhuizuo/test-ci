@@ -1,0 +1,126 @@
+{
+  "docker_images": [
+    {
+      "name": "br",
+      "version": "v8.5.6",
+      "commit_hash": "ae18096e023780bb56bfce33698abec0d4640d0a"
+    },
+    {
+      "name": "tidb",
+      "version": "v8.5.6",
+      "commit_hash": "ae18096e023780bb56bfce33698abec0d4640d0a"
+    },
+    {
+      "name": "tikv",
+      "version": "v8.5.6",
+      "commit_hash": "74a92daaed2c91b11c6253593e471cd725a7b3d4"
+    },
+    {
+      "name": "pd",
+      "version": "v8.5.6",
+      "commit_hash": "21bd0a379e5f9d2be11a92d17645a6ada19f02c1"
+    },
+    {
+      "name": "tiflash",
+      "version": "v8.5.6",
+      "commit_hash": "836d94d143d2ed30b56781bad12e4decb1621d7c"
+    },
+    {
+      "name": "ticdc",
+      "version": "v8.5.6",
+      "commit_hash": "69fe9ffdbeb3cf24f2257473d17f90e5cc4acbe8"
+    },
+    {
+      "name": "dm",
+      "version": "v8.5.6",
+      "commit_hash": "7c6d2b6be2ad464cc10ebfd835ca6d940c35a4e2"
+    },
+    {
+      "name": "dumpling",
+      "version": "v8.5.6",
+      "commit_hash": "ae18096e023780bb56bfce33698abec0d4640d0a"
+    },
+    {
+      "name": "tidb-dashboard",
+      "version": "v8.5.6",
+      "commit_hash": "b189ae3f181ff8510db5e9a1bda2b328d6aebe8e"
+    },
+    {
+      "name": "lightning",
+      "version": "v8.5.6",
+      "commit_hash": "ae18096e023780bb56bfce33698abec0d4640d0a"
+    },
+    {
+      "name": "ng-monitoring",
+      "version": "v8.5.6",
+      "commit_hash": "37156e77afdcc98611b6c9eb027329f98d6984bc"
+    },
+    {
+      "name": "enterprise-plugin",
+      "version": "v8.5.6",
+      "commit_hash": "d313c9836643ddeedb5288e5d96f6b789f63bf48"
+    }
+  ],
+  "tiup_packages": [
+    {
+      "name": "br",
+      "version": "v8.5.6",
+      "commit_hash": "ae18096e023780bb56bfce33698abec0d4640d0a"
+    },
+    {
+      "name": "tidb",
+      "version": "v8.5.6",
+      "commit_hash": "ae18096e023780bb56bfce33698abec0d4640d0a"
+    },
+    {
+      "name": "tikv",
+      "version": "v8.5.6",
+      "commit_hash": "74a92daaed2c91b11c6253593e471cd725a7b3d4"
+    },
+    {
+      "name": "pd",
+      "version": "v8.5.6",
+      "commit_hash": "21bd0a379e5f9d2be11a92d17645a6ada19f02c1"
+    },
+    {
+      "name": "tiflash",
+      "version": "v8.5.6",
+      "commit_hash": "836d94d143d2ed30b56781bad12e4decb1621d7c"
+    },
+    {
+      "name": "ticdc",
+      "version": "v8.5.6",
+      "commit_hash": "69fe9ffdbeb3cf24f2257473d17f90e5cc4acbe8"
+    },
+    {
+      "name": "dm",
+      "version": "v8.5.6",
+      "commit_hash": "7c6d2b6be2ad464cc10ebfd835ca6d940c35a4e2"
+    },
+    {
+      "name": "dumpling",
+      "version": "v8.5.6",
+      "commit_hash": "ae18096e023780bb56bfce33698abec0d4640d0a"
+    },
+    {
+      "name": "tidb-dashboard",
+      "version": "v8.5.6",
+      "commit_hash": "b189ae3f181ff8510db5e9a1bda2b328d6aebe8e"
+    },
+    {
+      "name": "lightning",
+      "version": "v8.5.6",
+      "commit_hash": "ae18096e023780bb56bfce33698abec0d4640d0a"
+    },
+    {
+      "name": "ng-monitoring",
+      "version": "v8.5.6",
+      "commit_hash": "37156e77afdcc98611b6c9eb027329f98d6984bc"
+    },
+    {
+      "name": "enterprise-plugin",
+      "version": "v8.5.6",
+      "commit_hash": "d313c9836643ddeedb5288e5d96f6b789f63bf48"
+    }
+  ]
+}
