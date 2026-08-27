@@ -3,12 +3,12 @@
     {
       "name": "br",
       "version": "v8.5.8",
-      "commit_hash": "679bbc290e7f52b1865f5a5a4a46c0a40c365526"
+      "commit_hash": "8b857efa20363d50a8fa2ea7dd9809a85a61b115"
     },
     {
       "name": "tidb",
       "version": "v8.5.8",
-      "commit_hash": "679bbc290e7f52b1865f5a5a4a46c0a40c365526"
+      "commit_hash": "8b857efa20363d50a8fa2ea7dd9809a85a61b115"
     },
     {
       "name": "tikv",
@@ -33,12 +33,12 @@
     {
       "name": "dm",
       "version": "v8.5.8",
-      "commit_hash": "d94457526fcccdb236c14d7fa53e3ca3a9f9914e"
+      "commit_hash": "b4d3c9ae943f18736aae7a096dc0f65f2707bda6"
     },
     {
       "name": "dumpling",
       "version": "v8.5.8",
-      "commit_hash": "679bbc290e7f52b1865f5a5a4a46c0a40c365526"
+      "commit_hash": "8b857efa20363d50a8fa2ea7dd9809a85a61b115"
     },
     {
       "name": "tidb-dashboard",
@@ -48,7 +48,7 @@
     {
       "name": "lightning",
       "version": "v8.5.8",
-      "commit_hash": "679bbc290e7f52b1865f5a5a4a46c0a40c365526"
+      "commit_hash": "8b857efa20363d50a8fa2ea7dd9809a85a61b115"
     },
     {
       "name": "ng-monitoring",
@@ -65,12 +65,12 @@
     {
       "name": "br",
       "version": "v8.5.8",
-      "commit_hash": "679bbc290e7f52b1865f5a5a4a46c0a40c365526"
+      "commit_hash": "8b857efa20363d50a8fa2ea7dd9809a85a61b115"
     },
     {
       "name": "tidb",
       "version": "v8.5.8",
-      "commit_hash": "679bbc290e7f52b1865f5a5a4a46c0a40c365526"
+      "commit_hash": "8b857efa20363d50a8fa2ea7dd9809a85a61b115"
     },
     {
       "name": "tikv",
@@ -95,12 +95,12 @@
     {
       "name": "dm",
       "version": "v8.5.8",
-      "commit_hash": "d94457526fcccdb236c14d7fa53e3ca3a9f9914e"
+      "commit_hash": "b4d3c9ae943f18736aae7a096dc0f65f2707bda6"
     },
     {
       "name": "dumpling",
       "version": "v8.5.8",
-      "commit_hash": "679bbc290e7f52b1865f5a5a4a46c0a40c365526"
+      "commit_hash": "8b857efa20363d50a8fa2ea7dd9809a85a61b115"
     },
     {
       "name": "tidb-dashboard",
@@ -110,7 +110,7 @@
     {
       "name": "lightning",
       "version": "v8.5.8",
-      "commit_hash": "679bbc290e7f52b1865f5a5a4a46c0a40c365526"
+      "commit_hash": "8b857efa20363d50a8fa2ea7dd9809a85a61b115"
     },
     {
       "name": "ng-monitoring",
